@@ -41,7 +41,7 @@
 			<button type="button" class="btn btn-primary"
 				ng-disabled="!rs.name || !rs.train.speed" ng-hide="editMode"
 				ng-click="addNewRailwayStation(rs)">Add Railway Station</button>
-				
+
 			<button type="button" class="btn btn-primary"
 				ng-disabled="!rs.train.name || !rs.train.speed" ng-show="editMode"
 				ng-click="updateRailwayStation(rs)">Save Railway Station</button>
@@ -69,7 +69,7 @@
 			<td>{{item.train.speed}}</td>
 			<td style="text-align: center; width: 20px;"><span
 				ng-show="item.train.diesel" class="icon-ok"></span></td>
-				
+
 			<td style="width: 100px; text-align: center;">
 				<button class="btn btn-mini btn-danger"
 					ng-click="removeRailwayStation(item.id)">Remove</button>
@@ -80,3 +80,4 @@
 </table>
 <button class="btn btn-danger" ng-show="railwaystations.length > 1"
 	ng-click="removeAllRailwayStations()">Remove All stations</button>
+-->

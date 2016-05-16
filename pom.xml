@@ -40,6 +40,34 @@
             <version>2.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>dei.qcs.g02</groupId>
+            <artifactId>ws02</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dei.qcs.g03</groupId>
+            <artifactId>ws03</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dei.qcs.g04</groupId>
+            <artifactId>ws04</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dei.qcs.g05</groupId>
+            <artifactId>ws05</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dei.qcs.g07</groupId>
+            <artifactId>ws07</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+
     </dependencies>
     <build>
         <finalName>spring-mvc-angularjs</finalName>
