@@ -6,6 +6,14 @@ var App = angular.module('AngularSpringApp', ['AngularSpringApp.filters', 'Angul
 
 // Declare app level module which depends on filters, and services
 App.config(['$routeProvider', function ($routeProvider) {
+
+/*
+    $routeProvider.when('/mids', {
+        templateUrl: 'mids/layout',
+        controller: MidsController
+    });
+*/
+
     $routeProvider.when('/cars', {
         templateUrl: 'cars/layout',
         controller: CarController
@@ -15,7 +23,7 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'trains/layout',
         controller: TrainController
     });
-    
+
     $routeProvider.when('/railwaystations', {
         templateUrl: 'railwaystations/layout',
         controller: RailwayStationController
