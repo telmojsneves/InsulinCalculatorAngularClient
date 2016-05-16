@@ -1,13 +1,15 @@
 
 <div class="input-append">
     <input style="width:358px; margin-left: 100px;" class="span2" type="text" ng-model="carName" required="required" min="1" />
-    <button class="btn btn-primary" ng-disabled="!carName" ng-click="addNewCar(carName)">Add Car</button>
+    <button class="btn btn-primary" ng-disabled="!carName" ng-click="getMids({})">Get Results</button>
+    <!--<button class="btn btn-primary" ng-disabled="!carName" ng-click="addNewCar(carName)">Add Car</button>-->
 </div>
 
-<h3 style="margin-left:100px;">Car List</h3>
+<h3 style="margin-left:100px;">Result</h3>
 <div class="alert alert-info" style="width:400px;margin-left:100px;" ng-show="cars.length == 0">
     No cars found
 </div>
+<!--
 <table class="table table-bordered table-striped" style="width:450px; margin-left: 100px;" ng-show="cars.length > 0">
     <thead>
         <tr>
@@ -22,4 +24,6 @@
         </tr>
     </tbody>
 </table>
-<button style="margin-left:100px;" class="btn btn-danger"  ng-show="cars.length > 1" ng-click="removeAllCars()">Remove All Cars</button>
+-->
+
+<!--<button style="margin-left:100px;" class="btn btn-danger"  ng-show="cars.length > 1" ng-click="removeAllCars()">Remove All Cars</button>-->

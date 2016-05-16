@@ -36,7 +36,6 @@ public class ThreadPoolService {
     	this.clients = clientManager.getClientsServices();
     	
         executorService = Executors.newFixedThreadPool(NUMBEROFTHREADS);
-        resultsWSList = new ArrayList<Future<Integer>>();
     }
     
     
@@ -51,6 +50,8 @@ public class ThreadPoolService {
 
     private void execute(){
 
+    	resultsWSList = new ArrayList<Future<Integer>>();
+    	
     	int i = 0;
     	
         //callables = new HashSet<Callable<Integer>>();

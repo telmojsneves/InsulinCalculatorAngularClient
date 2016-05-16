@@ -22,11 +22,12 @@ public class WebServicesManager {
 	
 	}
 	
-	public void execute(){
+	public int execute(){
 		
 		//receive object to treat 
 		
 		threadPoolService.wsResponses();
+		
 		int[] results = threadPoolService.getResultsWSList();
 		
 		for (int i = 0; i < results.length; i++){
@@ -34,7 +35,8 @@ public class WebServicesManager {
 		}
 
 		System.out.println(results);
-		System.out.println(voter.vote(results));
+		int finalResult = voter.vote(results);
+		return finalResult;
 		
 		
 	}

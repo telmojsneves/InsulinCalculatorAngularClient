@@ -1,5 +1,6 @@
 package pt.dei.springmvcangularjs.controller;
 
+import pt.dei.insulin_calculator_server.ws_manager.WebServicesManager;
 import pt.dei.springmvcangularjs.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,9 +23,23 @@ public class CarController {
 
     @Autowired
     private CarService carService;
+    private static WebServicesManager wsServicesManager;
+    public CarController() {
+    	wsServicesManager = new WebServicesManager();
+	}
 
+    @RequestMapping("/api/v1/mids")
+    public @ResponseBody Integer getMids(){
+    	
+    	return 1;
+    	
+    }
+    
+    
     @RequestMapping("/carlist.json")
     public @ResponseBody List<String> getCarList() {
+    	wsServicesManager.execute();
+    	
         return carService.getAllCars();
     }
 
