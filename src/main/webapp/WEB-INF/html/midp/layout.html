@@ -1,0 +1,26 @@
+
+<div class="input-append">
+
+
+    <label style="width:358px; " class="control-label" for="a_for">Total Grams of carbo at meal (g)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_a" min="60" max="120" required="required" />
+
+    <label style="width:358px; " class="control-label" for="b_for">Total Grams of carbo processed by 1 unit (g)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_b" min="10" max="15" required="required" />
+
+    <label style="width:358px; " class="control-label" for="c_for">Actual blood sugar level (mg/dl)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_c" min="120" max="250" required="required" />
+
+    <label style="width:358px; " class="control-label" for="d_for">Target blood sugar level (mg/dl)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_d" min="80" max="120" required="required" />
+
+    <label style="width:358px; " class="control-label" for="e_for">Today's Physical Activity (0-10)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_e" min="0" max="10" required="required" />
+
+</div>
+
+<div>
+    <button class="btn btn-primary" style="margin-top: 1cm;"
+        ng-disabled="isThisDisabled()" ng-click="getMids()">Calculate Insulin Dose</button>
+        <h3 ng-if="results" style="margin-left:100px;">Result is {{results}}</h3>
+</div>

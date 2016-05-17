@@ -7,11 +7,11 @@ var App = angular.module('AngularSpringApp', ['AngularSpringApp.filters', 'Angul
 // Declare app level module which depends on filters, and services
 App.config(['$routeProvider', function ($routeProvider) {
 
-/*    $routeProvider.when('/midp', {
+    $routeProvider.when('/midp', {
         templateUrl: 'api/v1/midp/layout',
         controller: MidpController
     });
-*/
+
     $routeProvider.when('/bid', {
         templateUrl: 'api/v1/bid/layout',
         controller: BidController
