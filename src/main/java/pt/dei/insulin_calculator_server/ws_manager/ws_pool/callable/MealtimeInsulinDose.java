@@ -1,5 +1,6 @@
 package pt.dei.insulin_calculator_server.ws_manager.ws_pool.callable;
 
+
 import java.util.concurrent.Callable;
 
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCS05;
@@ -8,6 +9,7 @@ import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID02;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID03;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID04;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientRuler;
+import pt.dei.springmvcangularjs.models.MidsModel;
 
 
 
@@ -22,19 +24,14 @@ public class MealtimeInsulinDose implements Callable<Integer>{
 	private int personalSensitivity;
 	private ClientRuler clientWS;
 	
-	
-    public MealtimeInsulinDose(int carbohydrateAmount,
-                          int carbohydrateToInsulinRatio,
-                          int preMealBloodSugar,
-                          int targetBloodSugar,
-                          int personalSensitivity,
+    public MealtimeInsulinDose( MidsModel midsModel,
                           ClientRuler clientWS){
 
-        this.carbohydrateAmount = carbohydrateAmount;
-        this.carbohydrateToInsulinRatio = carbohydrateToInsulinRatio;
-        this.preMealBloodSugar = preMealBloodSugar;
-        this.targetBloodSugar = targetBloodSugar;
-        this.personalSensitivity = personalSensitivity;
+        this.carbohydrateAmount = midsModel.getTotalGramsCarboMeal();
+        this.carbohydrateToInsulinRatio = midsModel.getTotalGramsCarboUnit();
+        this.preMealBloodSugar = midsModel.getActualBloodSugar();
+        this.targetBloodSugar = midsModel.getTargetBloodSugar();
+        this.personalSensitivity = midsModel.getIndividualSensitivity();
         this.clientWS = clientWS;
 
     }

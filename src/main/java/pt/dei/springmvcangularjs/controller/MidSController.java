@@ -32,10 +32,9 @@ public class MidSController {
     		return -1;
     	}
     	
-    	System.out.println(midsObject.toString());
-    	
+    	int value = wsServicesManager.execute(midsObject);
     	//call cenas
-    	return 1;
+    	return value;
 
     }
 

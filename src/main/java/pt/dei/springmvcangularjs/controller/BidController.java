@@ -32,10 +32,11 @@ public class BidController {
     		return -1;
     	}
     	
-    	System.out.println(bidObject.toString());
+    	int finalValue= wsServicesManager.execute(bidObject);
+    	
     	
     	//call cenas
-    	return 1;
+    	return finalValue;
 
     }
 

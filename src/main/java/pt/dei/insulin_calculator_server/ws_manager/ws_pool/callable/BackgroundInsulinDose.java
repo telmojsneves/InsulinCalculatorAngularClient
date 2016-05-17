@@ -8,6 +8,7 @@ import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID02;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID03;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientQCSID04;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientRuler;
+import pt.dei.springmvcangularjs.models.BidModel;
 
 public class BackgroundInsulinDose implements Callable<Integer>{
 
@@ -15,9 +16,9 @@ public class BackgroundInsulinDose implements Callable<Integer>{
     private ClientRuler clientWS;
     
     
-    public BackgroundInsulinDose(int bodyWeight, ClientRuler clientWS){
+    public BackgroundInsulinDose(BidModel bidModel, ClientRuler clientWS){
 
-        this.bodyWeight = bodyWeight;
+        this.bodyWeight = bidModel.getWeight();
         this.clientWS = clientWS;
 
 
