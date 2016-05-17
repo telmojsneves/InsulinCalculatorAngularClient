@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pt.dei.insulin_calculator_server.ws_manager.WebServicesManager;
+import pt.dei.springmvcangularjs.models.MidpModel;
 import pt.dei.springmvcangularjs.models.MidsModel;
 
 @Controller
@@ -26,7 +27,7 @@ public class MidPController {
     @RequestMapping("/")
     public @ResponseBody Integer getMids(@RequestParam Map<String,String> params){
     	
-    	MidsModel midsObject = new MidsModel(params.get("input_a"), params.get("input_b"), params.get("input_c"), params.get("input_d"), params.get("input_e"));
+    	MidpModel midsObject = new MidpModel(params.get("input_a"), params.get("input_b"), params.get("input_c"), params.get("input_d"), params.get("input_e"));
 
     	if (!midsObject.validate()){
     		return -1;
