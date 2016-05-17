@@ -5,6 +5,7 @@ import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientManager;
 import pt.dei.insulin_calculator_server.ws_manager.ws_pool.ThreadPoolService;
 import pt.dei.springmvcangularjs.models.BidModel;
 import pt.dei.springmvcangularjs.models.MidsModel;
+import pt.dei.springmvcangularjs.models.Response;
 
 
 public class WebServicesManager {
@@ -23,32 +24,36 @@ public class WebServicesManager {
 	
 	}
 	
-	public int execute(MidsModel midsModel){
+	public Response execute(MidsModel midsModel){
 		
 		threadPoolService.wsResponses(midsModel);
 				
 		int[] results = threadPoolService.getResultsFromDifferentWS();
 		
 		if (results.length == 0){
-			return -1;
+			return new Response();
 		}
 		
 		int finalResult = Voter.vote(results);
 		
-		return finalResult;
+		return new Response(results.length, results, finalResult);
 
 		
 	}
 	
-	public int execute(BidModel bidModel){
+	public Response execute(BidModel bidModel){
 		
 		threadPoolService.wsResponses(bidModel);
 			
 		int[] results = threadPoolService.getResultsFromDifferentWS();
 		
+		if (results.length == 0){
+			return new Response();
+		}
+		
 		int finalResult = Voter.vote(results);
 		
-		return finalResult;
+		return new Response(results.length, results, finalResult);
 		
 	}
 	

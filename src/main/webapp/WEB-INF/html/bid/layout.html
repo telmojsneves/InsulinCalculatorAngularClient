@@ -10,5 +10,9 @@
 <div>
     <button class="btn btn-primary" style="margin-top: 1cm;"
         ng-disabled="isThisDisabled()" ng-click="getBid()">Calculate Insulin Dose</button>
-        <h3 ng-if="results" style="margin-left:100px;">Result is {{results}}</h3>
+        <h3 ng-if="results" style="margin-left:100px;">Result is {{results.finalResult}}</h3>
+        <div>
+        	<h4 ng-if="results" style="margin-left:100px;">Number of WebServices used: {{results.numberOfWebServicesUsed}}</h4>
+        	<h4 ng-if="results" style="margin-left:100px;">Results from the WebServices: {{results.resultsFromWebServices}}</h4>
+    	</div>
 </div>
