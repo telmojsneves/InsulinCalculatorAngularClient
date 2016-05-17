@@ -116,7 +116,8 @@ public class ThreadPoolService {
     	int[] results = new int[resultsWSList.size()];
     	
         for (int i = 0; i < resultsWSList.size(); i++) {
-    		while (isWaiting){
+    		results[i] = -1;
+        	while (isWaiting){
             	if (resultsWSList.get(i).isDone()) {
                     try {
                     	isWaiting = false;
@@ -227,6 +228,7 @@ public class ThreadPoolService {
     public int[] getResultsWSList() {
     	
     	int[] results = new int[resultsWSList.size()];
+    	
     	
         for (int i = 0; i < resultsWSList.size(); i++) {
     		if (resultsWSList.get(i).isDone()) {
