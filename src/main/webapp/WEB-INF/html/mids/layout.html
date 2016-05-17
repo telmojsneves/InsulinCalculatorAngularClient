@@ -22,14 +22,5 @@
 <div>
     <button class="btn btn-primary" style="margin-top: 1cm;"
         ng-disabled="isThisDisabled()" ng-click="getMids()">Calculate Insulin Dose</button>
+        <h3 ng-if="results" style="margin-left:100px;">Result is {{results}}</h3>
 </div>
-
-
-
-
-<!--
-<h3 style="margin-left:100px;">Result</h3>
-<div class="alert alert-info" style="width:400px;margin-left:100px;" ng-show="cars.length == 0">
-    No cars found
-</div>
--->

@@ -1,0 +1,14 @@
+
+<div class="input-append">
+
+
+    <label style="width:358px; " class="control-label" for="a_for">Weight (kg)</label>
+    <input style="width:358px; " class="span2" type="number" ng-model="values.input_a" min="40" max="130" required="required" />
+
+</div>
+
+<div>
+    <button class="btn btn-primary" style="margin-top: 1cm;"
+        ng-disabled="isThisDisabled()" ng-click="getBid()">Calculate Insulin Dose</button>
+        <h3 ng-if="results" style="margin-left:100px;">Result is {{results}}</h3>
+</div>

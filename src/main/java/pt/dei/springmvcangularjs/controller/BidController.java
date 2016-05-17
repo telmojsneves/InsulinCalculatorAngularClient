@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pt.dei.insulin_calculator_server.ws_manager.WebServicesManager;
-import pt.dei.springmvcangularjs.models.MidsModel;
+import pt.dei.springmvcangularjs.models.BidModel;
 
 @Controller
-@RequestMapping("/api/v1/mids")
-public class MidSController {
+@RequestMapping("/api/v1/bid")
+public class BidController {
 
 
     @Autowired
     private static WebServicesManager wsServicesManager;
 
-    public MidSController() {
+    public BidController() {
     	wsServicesManager = new WebServicesManager();
 	}
 
     @RequestMapping("/")
-    public @ResponseBody Integer getMids(@RequestParam Map<String,String> params){
+    public @ResponseBody Integer getBids(@RequestParam Map<String,String> params){
     	
-    	MidsModel midsObject = new MidsModel(params.get("input_a"), params.get("input_b"), params.get("input_c"), params.get("input_d"), params.get("input_e"));
+    	BidModel bidObject = new BidModel(params.get("input_a"));
 
-    	if (!midsObject.validate()){
+    	if (!bidObject.validate()){
     		return -1;
     	}
     	
-    	System.out.println(midsObject.toString());
+    	System.out.println(bidObject.toString());
     	
     	//call cenas
     	return 1;
@@ -41,7 +41,7 @@ public class MidSController {
 
     @RequestMapping("/layout")
     public String getMidsPartialPage() {
-        return "mids/layout";
+        return "bid/layout";
     }
 
 
