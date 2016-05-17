@@ -7,14 +7,6 @@
  */
 var CarController = function($scope, $http) {
 
-    $scope.getMids = function(data) {
-
-        $http.get('api/v1/mids/').success(function(results){
-            $scope.results = results;
-            console.log(results);
-        });
-    };
-
     $scope.fetchCarsList = function() {
         $http.get('cars/carlist.json').success(function(results){
             $scope.cars = results;

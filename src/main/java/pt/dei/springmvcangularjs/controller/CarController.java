@@ -60,6 +60,7 @@ public class CarController {
 
     @RequestMapping("/layout")
     public String getCarPartialPage() {
+    	System.out.println("SOMEHOW IS HERE\n\n\\n\n\n\n\n\n\n\n\n");
         return "cars/layout";
     }
 }

@@ -2,17 +2,17 @@
 
 var AngularSpringApp = {};
 
-var App = angular.module('AngularSpringApp', ['AngularSpringApp.filters', 'AngularSpringApp.services', 'AngularSpringApp.directives']);
+var App = angular.module('AngularSpringApp', ['AngularSpringApp.filters', 'AngularSpringApp.services', 'AngularSpringApp.directives', 'ngRoute']);
 
 // Declare app level module which depends on filters, and services
 App.config(['$routeProvider', function ($routeProvider) {
 
-/*
+
     $routeProvider.when('/mids', {
-        templateUrl: 'mids/layout',
+        templateUrl: 'api/v1/mids/layout',
         controller: MidsController
     });
-*/
+
 
     $routeProvider.when('/cars', {
         templateUrl: 'cars/layout',
