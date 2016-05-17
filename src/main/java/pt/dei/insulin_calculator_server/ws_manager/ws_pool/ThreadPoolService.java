@@ -102,7 +102,7 @@ public class ThreadPoolService {
     	
         for (int i = 0; i < clientsSize; i++){
         
-        	callables.add(new BackgroundInsulinDose(bidModel, clients.get(i)));
+        	callablesWS.add(new BackgroundInsulinDose(bidModel, clients.get(i)));
         
         }
         

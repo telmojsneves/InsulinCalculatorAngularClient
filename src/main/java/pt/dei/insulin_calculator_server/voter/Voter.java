@@ -7,9 +7,6 @@ public class Voter {
 	
 	private static final int MAX_RESULTS = 300;
 	
-	public Voter() {
-	
-	}
 	
 	public static int vote(int[] results) {
 		int[] frequencies = Voter.calcFrequenciesBasedInStandardDeviation(results);

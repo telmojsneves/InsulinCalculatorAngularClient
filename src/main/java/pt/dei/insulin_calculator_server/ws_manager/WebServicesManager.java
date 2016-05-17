@@ -10,14 +10,13 @@ import pt.dei.springmvcangularjs.models.MidsModel;
 public class WebServicesManager {
 
 	private ThreadPoolService threadPoolService;
-	private Voter voter;
+	
 
 	
 	public WebServicesManager() {
 
 		ClientManager clientManager = new ClientManager();
 		clientManager.createClientsConnectorsList();
-		voter = new Voter();
 		
 		threadPoolService = new ThreadPoolService(clientManager);
 		
@@ -34,7 +33,7 @@ public class WebServicesManager {
 			return -1;
 		}
 		
-		int finalResult = voter.vote(results);
+		int finalResult = Voter.vote(results);
 		
 		return finalResult;
 
@@ -47,7 +46,7 @@ public class WebServicesManager {
 			
 		int[] results = threadPoolService.getResultsFromDifferentWS();
 		
-		int finalResult = voter.vote(results);
+		int finalResult = Voter.vote(results);
 		
 		return finalResult;
 		
@@ -69,7 +68,7 @@ public class WebServicesManager {
 		}
 
 		System.out.println(results);
-		int finalResult = voter.vote(results);
+		int finalResult = Voter.vote(results);
 		return finalResult;
 		
 		
