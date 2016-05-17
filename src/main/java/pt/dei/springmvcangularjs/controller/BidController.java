@@ -33,7 +33,7 @@ public class BidController {
     		return new Response();
     	}
     	
-    	Response response= wsServicesManager.execute(bidObject);
+    	Response response = wsServicesManager.execute(bidObject);
     	
     	
     	//call cenas
