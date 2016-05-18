@@ -1,100 +1,60 @@
 package pt.dei.springmvcangularjs.models;
 
+import java.util.List;
 
 public class MidpModel {
 
-	private int totalGramsCarboMeal;
-	private int totalGramsCarboUnit;
-	private int actualBloodSugar;
-	private int targetBloodSugar;
-	private int totalActivityLevel;
 
-	public MidpModel(String totalGramsCarboMeal,
-				String totalGramsCarboUnit,
-				String actualBloodSugar,
-				String targetBloodSugar,
-				String totalActivityLevel
+	private List<Integer> physicalsamples;
+	private List<Integer> bloodsamples;
+	private int physicalActivityLevel;
+	
+	public MidpModel(int physicalActivityLevel,
+				List<Integer> physicalsamples,
+				List<Integer> bloodsamples
 				) {
-
-
-
-		this.setTotalGramsCarboMeal(convertString(totalGramsCarboMeal));
-		this.setTotalGramsCarboUnit(convertString(totalGramsCarboUnit));
-		this.setActualBloodSugar(convertString(actualBloodSugar));
-		this.setTargetBloodSugar(convertString(targetBloodSugar));
-		this.settotalActivityLevel(convertString(totalActivityLevel));
+					this.setPhysicalActivityLevel(physicalActivityLevel);
+					this.setPhysicalsamples(physicalsamples);
+					this.setBloodsamples(bloodsamples);
 
 	}
 
 	public String toString(){
 		return
-			" totalGramsCarboMeal = " + this.totalGramsCarboMeal +
-			" totalGramsCarboUnit = " + this.totalGramsCarboUnit +
-			" actualBloodSugar = " + this.actualBloodSugar +
-			" targetBloodSugar = " + this.targetBloodSugar +
-			" totalActivityLevel = " + this.totalActivityLevel;
+			" physicalActivityLevel = " + this.physicalActivityLevel +
+			" physicalsamples = " + this.physicalsamples.toString() +
+			" bloodsamples = " + this.bloodsamples.toString();
 	}
+	
 
-	public int convertString(String s){
-
-		try {
-			return Integer.parseInt(s);
-		}
-		catch (NumberFormatException e) {
-			return -1;
-		}
-	}
-
-	public boolean validate(){
-		if (	this.totalGramsCarboMeal ==-1  ||
-				this.totalGramsCarboUnit ==-1  ||
-				this.actualBloodSugar ==-1  ||
-				this.targetBloodSugar ==-1  ||
-				this.totalActivityLevel ==-1 ){
-			return false;
-		}
-		return true;
+	public List<Integer> getPhysicalsamples() {
+		return physicalsamples;
 	}
 
 
-	public int getTotalGramsCarboMeal() {
-		return totalGramsCarboMeal;
+	public void setPhysicalsamples(List<Integer> physicalsamples) {
+		this.physicalsamples = physicalsamples;
 	}
 
-	public void setTotalGramsCarboMeal(int totalGramsCarboMeal) {
-		this.totalGramsCarboMeal = totalGramsCarboMeal;
+
+	public List<Integer> getBloodsamples() {
+		return bloodsamples;
 	}
 
-	public int getTotalGramsCarboUnit() {
-		return totalGramsCarboUnit;
+
+	public void setBloodsamples(List<Integer> bloodsamples) {
+		this.bloodsamples = bloodsamples;
 	}
 
-	public void setTotalGramsCarboUnit(int totalGramsCarboUnit) {
-		this.totalGramsCarboUnit = totalGramsCarboUnit;
+
+	public int getPhysicalActivityLevel() {
+		return physicalActivityLevel;
 	}
 
-	public int getActualBloodSugar() {
-		return actualBloodSugar;
+
+	public void setPhysicalActivityLevel(int physicalActivityLevel) {
+		this.physicalActivityLevel = physicalActivityLevel;
 	}
 
-	public void setActualBloodSugar(int actualBloodSugar) {
-		this.actualBloodSugar = actualBloodSugar;
-	}
-
-	public int getTargetBloodSugar() {
-		return targetBloodSugar;
-	}
-
-	public void setTargetBloodSugar(int targetBloodSugar) {
-		this.targetBloodSugar = targetBloodSugar;
-	}
-
-	public int gettotalActivityLevel() {
-		return totalActivityLevel;
-	}
-
-	public void settotalActivityLevel(int totalActivityLevel) {
-		this.totalActivityLevel = totalActivityLevel;
-	}
 
 }

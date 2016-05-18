@@ -14,8 +14,10 @@ import java.util.concurrent.TimeUnit;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientManager;
 import pt.dei.insulin_calculator_server.ws_manager.ws_client.ClientRuler;
 import pt.dei.insulin_calculator_server.ws_manager.ws_pool.callable.BackgroundInsulinDose;
+import pt.dei.insulin_calculator_server.ws_manager.ws_pool.callable.MealtimeAndPersonalSensitivityToInsulin;
 import pt.dei.insulin_calculator_server.ws_manager.ws_pool.callable.MealtimeInsulinDose;
 import pt.dei.springmvcangularjs.models.BidModel;
+import pt.dei.springmvcangularjs.models.MidpModel;
 import pt.dei.springmvcangularjs.models.MidsModel;
 
 
@@ -75,6 +77,30 @@ public class ThreadPoolService {
         for (int i = 0; i < clientsSize; i++){
         
         	callablesWS.add(new MealtimeInsulinDose(midsModel,clients.get(i)));
+        
+        }
+        
+        executeWSs(callablesWS);
+        
+        
+    	
+    }
+    
+    public void wsResponses(MidpModel midpModel,MidsModel midsModel){
+    	
+    	Set<Callable<Integer>> callablesWS = new HashSet<Callable<Integer>>();
+    	
+    	
+    	this.clientsSize = clients.size();
+        //if number of ws is even then restrict to be odd
+        //we assume that there are always more than 3 web services 
+        if ((clientsSize & 1) == 0) { 
+        	clientsSize = clientsSize - 1;
+        } 
+    	
+        for (int i = 0; i < clientsSize; i++){
+        
+        	callablesWS.add(new MealtimeAndPersonalSensitivityToInsulin(midpModel,midsModel,clients.get(i)));
         
         }
         
@@ -173,7 +199,7 @@ public class ThreadPoolService {
         	
 /*        	result = this.executorService.submit(new BackgroundInsulinDose(40,clients.get(i)));
         	resultsWSList.add(result);
-        	result = this.executorService.submit(new PersonalSensitivityToInsulin(12, new ArrayList<Integer>(), new ArrayList<>(), clients.get(i)));      	
+        	result = this.executorService.submit(new MealtimeAndPersonalSensitivityToInsulin(12, new ArrayList<Integer>(), new ArrayList<>(), clients.get(i)));      	
         	resultsWSList.add(result);
 */
         	

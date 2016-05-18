@@ -19,8 +19,21 @@
 
 </div>
 
+<div style="margin-top: 1cm;">
+    <div ng-repeat="sample in samples_array">
+        <input style="width:179px;" type="number" placeholder="Physical Activity" ng-model="sample.physical" min="0" max="10" required="required" />
+        <input style="width:179px;" type="number" placeholder="Blood drops" ng-model="sample.drops" min="15" max="100" required="required" />
+      </div>
+      <button class="btn btn-primary" ng-disabled="isSampleArrayMaxValue" ng-click="add()">Add Sample</button>
+</div>
+
 <div>
     <button class="btn btn-primary" style="margin-top: 1cm;"
-        ng-disabled="isThisDisabled()" ng-click="getMids()">Calculate Insulin Dose</button>
-        <h3 ng-if="results" style="margin-left:100px;">Result is {{results}}</h3>
+        ng-disabled="isThisDisabled()" ng-click="getMidp()">Calculate Insulin Dose</button>
+        <h3 ng-if="results.finalResult >= 0" style="margin-left:100px;">Result is {{results.finalResult}}</h3>
+        <h3 ng-if="results.finalResult == -1" style="margin-left:100px;">Timeout</h3>
+        <div>
+        	<h4 ng-if="results" style="margin-left:100px;">Number of WebServices used: {{results.numberOfWebServicesUsed}}</h4>
+        	<h4 ng-if="results" style="margin-left:100px;">Results from the WebServices: {{results.resultsFromWebServices}}</h4>
+    	</div>
 </div>
