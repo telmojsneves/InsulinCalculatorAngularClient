@@ -23,21 +23,5 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: MidsController
     });
 
-
-    $routeProvider.when('/cars', {
-        templateUrl: 'cars/layout',
-        controller: CarController
-    });
-
-    $routeProvider.when('/trains', {
-        templateUrl: 'trains/layout',
-        controller: TrainController
-    });
-
-    $routeProvider.when('/railwaystations', {
-        templateUrl: 'railwaystations/layout',
-        controller: RailwayStationController
-    });
-
-    $routeProvider.otherwise({redirectTo: '/cars'});
+    $routeProvider.otherwise({redirectTo: '/midp'});
 }]);
