@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>pt.dei.springmvcangularjs</groupId>
-    <artifactId>spring-mvc-angularjs</artifactId>
+    <artifactId>InsulinCalculator</artifactId>
     <packaging>war</packaging>
     <version>1.1</version>
     <name>AngularSpringApp Maven Webapp</name>
@@ -70,7 +70,7 @@
 
     </dependencies>
     <build>
-        <finalName>spring-mvc-angularjs</finalName>
+        <finalName>InsulinCalculator</finalName>
 
         <plugins>
             <plugin>
@@ -96,7 +96,7 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8080</port>
-                    <path>/spring-mvc-angularjs</path>
+                    <path>/InsulinCalculator</path>
                 </configuration>
             </plugin>
         </plugins>
