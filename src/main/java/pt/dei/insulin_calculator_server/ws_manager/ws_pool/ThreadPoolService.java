@@ -176,75 +176,8 @@ public class ThreadPoolService {
 
     private void execute(){
 
-    	resultsWSList = new ArrayList<Future<Integer>>();
     	
-    	int i = 0;
-    	
-        //callables = new HashSet<Callable<Integer>>();
-        
-        clientsSize = clients.size();
-        
-        //if number of ws is even then restrict to be odd
-        //we assume that there are always more than 3 web services 
-        if ((clientsSize & 1) == 0) { 
-        	clientsSize = clientsSize - 1;
-        } 
-        
-        Future<Integer> result;
-        
-        for (; i < clientsSize; i++){
-        	
-        	result = this.executorService.submit(new MealtimeInsulinDose(null,clients.get(i)));
-        	resultsWSList.add(result);
-        	
-/*        	result = this.executorService.submit(new BackgroundInsulinDose(40,clients.get(i)));
-        	resultsWSList.add(result);
-        	result = this.executorService.submit(new MealtimeAndPersonalSensitivityToInsulin(12, new ArrayList<Integer>(), new ArrayList<>(), clients.get(i)));      	
-        	resultsWSList.add(result);
-*/
-        	
-        }
-        
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-        
-        i = 0;
-        boolean timeout = true;
-        while (i < resultsWSList.size() && timeout){
-        	
-        	while (timeout){
-        		
-        		if (resultsWSList.get(i).isDone()){
-        			System.out.println("dammit IS DONE");
-        			timeout=false;
-        		}
-        		
-        	}
-        	
-        	
-        }
-        
-
-/*        
-        for (int i = 0 ; i < resultsWSList.size(); i++){
-        	
-        	try {
-				System.out.println(resultsWSList.get(i).get());
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        
-        }
-*/
     }
 
 	public void shutdown_executionService(){
