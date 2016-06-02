@@ -5,3 +5,4 @@ spring-mvc-angularjs.iml
 */**/.DS_Store
 .project
 .classpath
+.settings/*
