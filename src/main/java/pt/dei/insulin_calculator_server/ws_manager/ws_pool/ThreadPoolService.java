@@ -53,10 +53,12 @@ public class ThreadPoolService {
         try {
 			resultsWSList = executorService.invokeAll(callablesWS, timeout, TimeUnit.MILLISECONDS);
 		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
 			serviceFailed = true;
 		}
         
         if (serviceFailed){
+        	
         	System.out.println("At least one webservice failed... will try again");
         }
         
@@ -150,10 +152,12 @@ public class ThreadPoolService {
     					results[i] = resultsWSList.get(i).get();
     				} catch (InterruptedException e) {
     					// TODO Auto-generated catch block
-    					e.printStackTrace();
+    					System.out.println("Interrupted Exception");
+    					//e.printStackTrace();
     				} catch (ExecutionException e) {
+    					System.out.println("EXecution Exception");
     					// TODO Auto-generated catch block
-    					e.printStackTrace();
+    					//e.printStackTrace();
     				}
             	}
     		}
@@ -207,6 +211,7 @@ public class ThreadPoolService {
     			
     		}
         }
+        System.out.println(results);
 
         return results;
 	}

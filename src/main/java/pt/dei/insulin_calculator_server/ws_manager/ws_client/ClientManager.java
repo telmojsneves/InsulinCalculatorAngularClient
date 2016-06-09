@@ -19,7 +19,7 @@ public class ClientManager {
 		clientsServices.add(new ClientQCS05());
 		clientsServices.add(new ClientQCS07());
 		clientsServices.add(new ClientQCSID02());
-		clientsServices.add(new ClientQCSID03());
+		//clientsServices.add(new ClientQCSID03());
 		clientsServices.add(new ClientQCSID04());
 		
 	}
